@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explora el portafolio residencial de 33 Grados: casas, interiores y espacios para habitar.">
+  <meta name="theme-color" content="#191c18">
+  <title>33 Grados — Arquitectura para habitar</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="estilos.css">
+  <script src="proyectos.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <header class="cabecera">
+    <a class="marca" href="#inicio" aria-label="33 Grados, inicio"><span class="marca-numero">33°</span><span class="marca-texto">GRADOS<span>ARQUITECTURA</span></span></a>
+    <nav aria-label="Navegación principal"><a href="#proyectos">Proyectos</a><a href="#estudio">El estudio</a><a class="nav-destacado" href="#mirada">Nuestra mirada <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main id="contenido">
+    <!-- PORTADA: cambia la imagen y el texto de bienvenida aquí. -->
+    <section class="portada" id="inicio" aria-labelledby="titulo">
+      <img class="portada-foto" src="imagenes/casa-maoris-01.webp" alt="Casa Maoris: volúmenes abiertos al jardín y una fachada de líneas verticales" fetchpriority="high" width="2200" height="1467">
+      <div class="portada-sombra"></div>
+      <div class="portada-contenido"><p class="micro claro"><span class="punto"></span> Arquitectura · Espacio · Vida</p><h1 id="titulo">La forma de<br>habitar lo <em>extraordinario.</em></h1><p class="portada-descripcion">Luz, materia y naturaleza.<br>Espacios que se sienten tan bien como se ven.</p><a class="boton" href="#proyectos">Descubre nuestros proyectos <span aria-hidden="true">↗</span></a></div>
+      <div class="portada-pie"><span>Una mirada propia a la arquitectura.</span><button type="button" data-proyecto="casa-maoris">Casa Maoris <span aria-hidden="true">↗</span></button><a href="#proyectos" aria-label="Bajar a proyectos">Desliza para explorar ↓</a></div>
+    </section>
+    <section class="introduccion contenedor" id="mirada" aria-labelledby="mirada-titulo"><p class="micro"><span class="punto"></span> La esencia de 33 Grados</p><div><h2 id="mirada-titulo">Cada lugar tiene una historia.<br>Diseñamos cómo vivirla.</h2><p>Entendemos la arquitectura como el encuentro entre las personas y su entorno. Exploramos la luz, las proporciones y los materiales para dar forma a espacios con identidad.</p></div></section>
+    <!-- PROYECTOS: las fotografías y los nombres están en proyectos.js. -->
+    <section class="trabajos contenedor" id="proyectos" aria-labelledby="proyectos-titulo">
+      <div class="seccion-cabecera"><div><p class="micro">01 / Portafolio</p><h2 id="proyectos-titulo">Espacios con carácter<span class="acento">.</span></h2></div><p>Una selección de nuestra<br>arquitectura residencial.</p></div>
+      <div class="barra-filtros"><div class="filtros" role="group" aria-label="Filtrar proyectos"><button type="button" class="activo" data-filtro="todos" aria-pressed="true">Todos <sup>15</sup></button><button type="button" data-filtro="casas" aria-pressed="false">Casas <sup>13</sup></button><button type="button" data-filtro="conjuntos" aria-pressed="false">Conjuntos <sup>02</sup></button></div><span class="contador" aria-live="polite">Mostrando 6 de 15 proyectos</span></div>
+      <div class="proyectos-grid">
+        <article class="proyecto" data-categoria="casas">
+          <button class="proyecto-abrir" type="button" data-proyecto="casa-maoris" aria-label="Ver galería de Casa Maoris">
+            <div class="proyecto-imagen"><img src="imagenes/casa-maoris-portada.webp" alt="Casa Maoris" loading="lazy" width="1000" height="750"><span class="proyecto-ver">Ver proyecto <span aria-hidden="true">↗</span></span></div>
+            <div class="proyecto-pie"><div><span class="micro">Arquitectura residencial</span><h3>Casa Maoris</h3></div><span class="numero">01</span></div>
+          </button>
+        </article>
+        <article class="proyecto" data-categoria="casas">
+          <button class="proyecto-abrir" type="button" data-proyecto="casa-lomas-12-1" aria-label="Ver galería de Casa Lomas 12-1">
+            <div class="proyecto-imagen"><img src="imagenes/casa-lomas-12-1-portada.webp" alt="Casa Lomas 12-1" loading="lazy" width="1000" height="750"><span class="proyecto-ver">Ver proyecto <span aria-hidden="true">↗</span></span></div>
+            <div class="proyecto-pie"><div><span class="micro">Arquitectura residencial</span><h3>Casa Lomas 12-1</h3></div><span class="numero">02</span></div>
+          </button>
+        </article>
+        <article class="proyecto" data-categoria="casas">
+          <button class="proyecto-abrir" type="button" data-proyecto="casa-burgos" aria-label="Ver galería de Casa Burgos">
+            <div class="proyecto-imagen"><img src="imagenes/casa-burgos-portada.webp" alt="Casa Burgos" loading="lazy" width="1000" height="750"><span class="proyecto-ver">Ver proyecto <span aria-hidden="true">↗</span></span></div>
+            <div class="proyecto-pie"><div><span class="micro">Arquitectura residencial</span><h3>Casa Burgos</h3></div><span class="numero">03</span></div>
+          </button>
+        </article>
+        <article class="proyecto" data-categoria="casas">
+          <button class="proyecto-abrir" type="button" data-proyecto="casa-staines" aria-label="Ver galería de Casa Staines">
+            <div class="proyecto-imagen"><img src="imagenes/casa-staines-portada.webp" alt="Casa Staines" loading="lazy" width="1000" height="750"><span class="proyecto-ver">Ver proyecto <span aria-hidden="true">↗</span></span></div>
+            <div class="proyecto-pie"><div><span class="micro">Arquitectura residencial</span><h3>Casa Staines</h3></div><span class="numero">04</span></div>
+          </button>
+        </article>
+        <article class="proyecto" data-categoria="casas">
+          <button class="proyecto-abrir" type="button" data-proyecto="casa-jacarandas" aria-label="Ver galería de Casa Jacarandas">
+            <div class="proyecto-imagen"><img src="imagenes/casa-jacarandas-portada.webp" alt="Casa Jacarandas" loading="lazy" width="1000" height="750"><span class="proyecto-ver">Ver proyecto <span aria-hidden="true">↗</span></span></div>
+            <div class="proyecto-pie"><div><span class="micro">Arquitectura residencial</span><h3>Casa Jacarandas</h3></div><span class="numero">05</span></div>
+          </button>
+        </article>
+        <article class="proyecto" data-categoria="casas">
+          <button class="proyecto-abrir" type="button" data-proyecto="casa-olmecas" aria-label="Ver galería de Casa Olmecas">
+            <div class="proyecto-imagen"><img src="imagenes/casa-olmecas-portada.webp" alt="Casa Olmecas" loading="lazy" width="1000" height="750"><span class="proyecto-ver">Ver proyecto <span aria-hidden="true">↗</span></span></div>
+            <div class="proyecto-pie"><div><span class="micro">Arquitectura residencial</span><h3>Casa Olmecas</h3></div><span class="numero">06</span></div>
+          </button>
+        </article>
+        <article class="proyecto" data-categoria="casas" hidden>
+          <button class="proyecto-abrir" type="button" data-proyecto="casa-lomas-12-3" aria-label="Ver galería de Casa Lomas 12-3">
+            <div class="proyecto-imagen"><img src="imagenes/casa-lomas-12-3-portada.webp" alt="Casa Lomas 12-3" loading="lazy" width="1000" height="750"><span class="proyecto-ver">Ver proyecto <span aria-hidden="true">↗</span></span></div>
+            <div class="proyecto-pie"><div><span class="micro">Arquitectura residencial</span><h3>Casa Lomas 12-3</h3></div><span class="numero">07</span></div>
+          </button>
+        </article>
+        <article class="proyecto" data-categoria="casas" hidden>
+          <button class="proyecto-abrir" type="button" data-proyecto="casa-nacozari" aria-label="Ver galería de Casa Nacozari">
+            <div class="proyecto-imagen"><img src="imagenes/casa-nacozari-portada.webp" alt="Casa Nacozari" loading="lazy" width="1000" height="750"><span class="proyecto-ver">Ver proyecto <span aria-hidden="true">↗</span></span></div>
+            <div class="proyecto-pie"><div><span class="micro">Arquitectura residencial</span><h3>Casa Nacozari</h3></div><span class="numero">08</span></div>
+          </button>
+        </article>
+        <article class="proyecto" data-categoria="casas" hidden>
+          <button class="proyecto-abrir" type="button" data-proyecto="casa-olintepec" aria-label="Ver galería de Casa Olintepec">
+            <div class="proyecto-imagen"><img src="imagenes/casa-olintepec-portada.webp" alt="Casa Olintepec" loading="lazy" width="1000" height="750"><span class="proyecto-ver">Ver proyecto <span aria-hidden="true">↗</span></span></div>
+            <div class="proyecto-pie"><div><span class="micro">Arquitectura residencial</span><h3>Casa Olintepec</h3></div><span class="numero">09</span></div>
+          </button>
+        </article>
+        <article class="proyecto" data-categoria="casas" hidden>
+          <button class="proyecto-abrir" type="button" data-proyecto="casa-coba" aria-label="Ver galería de Casa Cobá">
+            <div class="proyecto-imagen"><img src="imagenes/casa-coba-portada.webp" alt="Casa Cobá" loading="lazy" width="1000" height="750"><span class="proyecto-ver">Ver proyecto <span aria-hidden="true">↗</span></span></div>
+            <div class="proyecto-pie"><div><span class="micro">Arquitectura residencial</span><h3>Casa Cobá</h3></div><span class="numero">10</span></div>
+          </button>
+        </article>
+        <article class="proyecto" data-categoria="casas" hidden>
+          <button class="proyecto-abrir" type="button" data-proyecto="casa-serena" aria-label="Ver galería de Casa Serena">
+            <div class="proyecto-imagen"><img src="imagenes/casa-serena-portada.webp" alt="Casa Serena" loading="lazy" width="1000" height="750"><span class="proyecto-ver">Ver proyecto <span aria-hidden="true">↗</span></span></div>
+            <div class="proyecto-pie"><div><span class="micro">Arquitectura residencial</span><h3>Casa Serena</h3></div><span class="numero">11</span></div>
+          </button>
+        </article>
+        <article class="proyecto" data-categoria="casas" hidden>
+          <button class="proyecto-abrir" type="button" data-proyecto="casa-yeca" aria-label="Ver galería de Casa Yeca">
+            <div class="proyecto-imagen"><img src="imagenes/casa-yeca-portada.webp" alt="Casa Yeca" loading="lazy" width="1000" height="750"><span class="proyecto-ver">Ver proyecto <span aria-hidden="true">↗</span></span></div>
+            <div class="proyecto-pie"><div><span class="micro">Arquitectura residencial</span><h3>Casa Yeca</h3></div><span class="numero">12</span></div>
+          </button>
+        </article>
+        <article class="proyecto" data-categoria="casas" hidden>
+          <button class="proyecto-abrir" type="button" data-proyecto="casa-atlacomulco" aria-label="Ver galería de Casa Atlacomulco">
+            <div class="proyecto-imagen"><img src="imagenes/casa-atlacomulco-portada.webp" alt="Casa Atlacomulco" loading="lazy" width="1000" height="750"><span class="proyecto-ver">Ver proyecto <span aria-hidden="true">↗</span></span></div>
+            <div class="proyecto-pie"><div><span class="micro">Arquitectura residencial</span><h3>Casa Atlacomulco</h3></div><span class="numero">13</span></div>
+          </button>
+        </article>
+        <article class="proyecto" data-categoria="conjuntos" hidden>
+          <button class="proyecto-abrir" type="button" data-proyecto="casas-claroscuro" aria-label="Ver galería de Casas Claroscuro">
+            <div class="proyecto-imagen"><img src="imagenes/casas-claroscuro-portada.webp" alt="Casas Claroscuro" loading="lazy" width="1000" height="750"><span class="proyecto-ver">Ver proyecto <span aria-hidden="true">↗</span></span></div>
+            <div class="proyecto-pie"><div><span class="micro">Conjunto residencial</span><h3>Casas Claroscuro</h3></div><span class="numero">14</span></div>
+          </button>
+        </article>
+        <article class="proyecto" data-categoria="conjuntos" hidden>
+          <button class="proyecto-abrir" type="button" data-proyecto="departamentos-olintepec" aria-label="Ver galería de Departamentos Olintepec">
+            <div class="proyecto-imagen"><img src="imagenes/departamentos-olintepec-portada.webp" alt="Departamentos Olintepec" loading="lazy" width="1000" height="750"><span class="proyecto-ver">Ver proyecto <span aria-hidden="true">↗</span></span></div>
+            <div class="proyecto-pie"><div><span class="micro">Conjunto residencial</span><h3>Departamentos Olintepec</h3></div><span class="numero">15</span></div>
+          </button>
+        </article>
+      </div>
+      <div class="mas-proyectos"><button class="boton boton-linea" id="ver-mas" type="button">Ver todos los proyectos <span aria-hidden="true">↗</span></button></div>
+      <noscript><p>Activa JavaScript para abrir las galerías y explorar todos los proyectos.</p></noscript>
+    </section>
+    <section class="estudio" id="estudio" aria-labelledby="estudio-titulo"><div class="estudio-imagen"><img src="imagenes/casa-staines-02.webp" alt="Patio de Casa Staines con vegetación y luz natural" loading="lazy" width="1800" height="1200"></div><div class="estudio-texto"><p class="micro">02 / El estudio</p><h2 id="estudio-titulo">Arquitectura que<br>se vive, se siente<br>y <em>permanece.</em></h2><p>Nos interesa lo que sucede entre los muros: la luz de la mañana, el vínculo con un jardín y los momentos cotidianos que convierten un espacio en hogar.</p><div class="principios"><span>01 — La luz como materia</span><span>02 — El entorno como punto de partida</span><span>03 — La vida al centro del diseño</span></div><a class="enlace" href="#proyectos">Conoce los espacios <span aria-hidden="true">↗</span></a></div></section>
+    <section class="cierre contenedor"><p class="micro">33 Grados / Arquitectura</p><p>Una nueva perspectiva.<br>Una forma propia de <em>habitar.</em></p><a href="#inicio" class="volver">Volver al inicio <span aria-hidden="true">↑</span></a></section>
+  </main>
+  <footer class="pie contenedor"><span>© <span id="anio">2026</span> 33 Grados</span><span>Arquitectura · Interiores · Espacios</span><a href="#proyectos">Explorar portafolio ↗</a></footer>
+  <!-- GALERÍA: se abre al pulsar cualquier proyecto. Escape la cierra. -->
+  <dialog id="galeria" aria-labelledby="galeria-titulo"><div class="galeria-cabecera"><div><span class="micro">Portafolio / 33 Grados</span><h2 id="galeria-titulo"></h2></div><button class="cerrar" id="cerrar-galeria" type="button" aria-label="Cerrar galería">Cerrar <span aria-hidden="true">×</span></button></div><div class="galeria-visor"><button class="flecha anterior" id="foto-anterior" type="button" aria-label="Fotografía anterior">←</button><img id="galeria-foto" alt=""><button class="flecha siguiente" id="foto-siguiente" type="button" aria-label="Fotografía siguiente">→</button></div><div class="galeria-inferior"><span id="galeria-contador" aria-live="polite"></span><p>Explora con las flechas · Esc para cerrar</p></div><div id="miniaturas" class="miniaturas" aria-label="Fotografías del proyecto"></div></dialog>
+</body>
+</html>

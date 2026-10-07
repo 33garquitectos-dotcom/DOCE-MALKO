@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DOCE, la rama de 33 Grados especializada en casas residenciales. Descubre nuestra arquitectura, interiores y espacios para vivir.">
+  <meta name="theme-color" content="#171917">
+  <title>DOCE — Arquitectura residencial · Una rama de 33 Grados</title>
+  <link rel="icon" href="logos/LOGO-12-GRIS.png" type="image/png">
+  <link rel="stylesheet" href="estilos.css">
+  <script src="proyectos.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <!-- IDENTIDAD: se utilizan tus logos originales, sin modificarlos. -->
+  <header class="cabecera" id="cabecera">
+    <a class="marca" href="#inicio" aria-label="DOCE, inicio">
+      <img src="logos/LOGO-12-BLANCO.png" alt="DOCE arquitectura residencial" width="283" height="290">
+      <span class="marca-nombre">D.O.C.E<span>UNA RAMA DE 33 GRADOS</span></span>
+    </a>
+    <button class="menu-boton" id="menu-boton" type="button" aria-expanded="false" aria-controls="menu">Menú <span aria-hidden="true">☰</span></button>
+    <nav id="menu" aria-label="Navegación principal">
+      <a href="#proyectos">Las casas</a><a href="#estudio">Somos DOCE</a>
+      <a class="nav-contacto" href="#contacto">Hablemos <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="contenido">
+    <!-- PORTADA: fundido entre casas. Cambia la selección en script.js. -->
+    <section class="portada" id="inicio" aria-labelledby="titulo" aria-roledescription="carrusel">
+      <div class="portada-fondos" aria-hidden="true">
+        <div class="portada-slide activa"><img src="imagenes/casa-maoris-01.webp" alt="" fetchpriority="high" width="2200" height="1467"></div>
+        <div class="portada-slide"><img src="imagenes/casa-lomas-12-1-01.webp" alt="" loading="lazy" width="2200" height="1467"></div>
+        <div class="portada-slide"><img src="imagenes/casa-staines-01.webp" alt="" loading="lazy" width="2200" height="1467"></div>
+        <div class="portada-slide"><img src="imagenes/casa-burgos-01.webp" alt="" loading="lazy" width="2200" height="1467"></div>
+      </div>
+      <div class="portada-sombra"></div>
+      <div class="portada-contenido">
+        <p class="micro"><span class="punto"></span> DOCE / Arquitectura residencial</p>
+        <h1 id="titulo">Hay casas.<br>Y hay formas de<br><em>vivir.</em></h1>
+        <div class="portada-descripcion"><span class="linea"></span><p>Diseñamos el espacio.<br>Tú le das vida.</p></div>
+        <a class="enlace-claro" href="#proyectos">Encuentra tu inspiración <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="portada-lateral" aria-hidden="true">LUZ / MATERIA / VIDA</div>
+      <div class="portada-pie">
+        <div class="portada-proyecto"><span class="micro">En portada</span><a id="portada-proyecto" href="#proyecto=casa-maoris" data-proyecto="casa-maoris">Casa Maoris <span aria-hidden="true">↗</span></a></div>
+        <div class="carrusel-controles" role="group" aria-label="Controles de las imágenes de portada">
+          <button id="portada-anterior" type="button" aria-label="Casa anterior en portada">←</button>
+          <div class="indicadores" role="group" aria-label="Elegir casa de portada">
+            <button type="button" data-slide="0" class="activo" aria-label="Mostrar Casa Maoris" aria-pressed="true"><span></span></button>
+            <button type="button" data-slide="1" aria-label="Mostrar Casa Lomas 12-1" aria-pressed="false"><span></span></button>
+            <button type="button" data-slide="2" aria-label="Mostrar Casa Staines" aria-pressed="false"><span></span></button>
+            <button type="button" data-slide="3" aria-label="Mostrar Casa Burgos" aria-pressed="false"><span></span></button>
+          </div>
+          <button id="portada-siguiente" type="button" aria-label="Siguiente casa en portada">→</button>
+          <button id="portada-pausa" type="button" aria-label="Pausar transiciones automáticas" aria-pressed="false">Ⅱ</button>
+        </div>
+        <a class="bajar" href="#proyectos">Explora las casas <span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
+    <section class="introduccion contenedor" id="mirada" aria-labelledby="mirada-titulo">
+      <div class="revelar"><p class="micro">01 / Nuestra esencia</p><span class="palabra-doce" aria-hidden="true">doce.</span><a class="vinculo-grados" href="https://33g.com.mx/" target="_blank" rel="noopener noreferrer">Una rama de 33 Grados ↗</a></div>
+      <div class="revelar"><h2 id="mirada-titulo">Una casa es personal.<br>Su arquitectura<br><em>también debería serlo.</em></h2><p>Somos DOCE, la rama de 33 Grados dedicada exclusivamente a la arquitectura de casas residenciales. Un espacio para explorar distintas maneras de habitar, desde la primera idea hasta cada detalle del hogar.</p></div>
+    </section>
+    <section class="trabajos contenedor" id="proyectos" aria-labelledby="proyectos-titulo">
+      <div class="seccion-cabecera revelar"><div><p class="micro">02 / Las casas</p><h2 id="proyectos-titulo">Distintas historias.<br>Una mirada <em>residencial.</em></h2></div><p>Recorre los espacios.<br>Imagina las posibilidades.</p></div>
+      <div class="barra-proyectos"><span class="contador" aria-live="polite">Mostrando 6 de 14 casas</span><label class="busqueda"><span class="sr-only">Buscar casa por nombre</span><input id="buscar-casa" type="search" placeholder="Buscar una casa…" autocomplete="off"><span aria-hidden="true">⌕</span></label></div>
+      <div class="proyectos-grid">
+        <article class="proyecto revelar" data-nombre="Casa Maoris">
+          <a class="proyecto-abrir" href="#proyecto=casa-maoris" data-proyecto="casa-maoris" aria-label="Explorar Casa Maoris">
+            <div class="proyecto-imagen">
+              <img src="imagenes/casa-maoris-portada.webp" alt="Casa Maoris" loading="lazy" width="1000" height="750">
+              <span class="proyecto-ver">Explorar casa <span aria-hidden="true">↗</span></span>
+              <span class="proyecto-numero">01 / 14</span>
+            </div>
+            <div class="proyecto-pie"><h3>Casa Maoris</h3><span>Arquitectura residencial <span aria-hidden="true">↗</span></span></div>
+          </a>
+        </article>
+        <article class="proyecto revelar" data-nombre="Casa Lomas 12-1">
+          <a class="proyecto-abrir" href="#proyecto=casa-lomas-12-1" data-proyecto="casa-lomas-12-1" aria-label="Explorar Casa Lomas 12-1">
+            <div class="proyecto-imagen">
+              <img src="imagenes/casa-lomas-12-1-portada.webp" alt="Casa Lomas 12-1" loading="lazy" width="1000" height="750">
+              <span class="proyecto-ver">Explorar casa <span aria-hidden="true">↗</span></span>
+              <span class="proyecto-numero">02 / 14</span>
+            </div>
+            <div class="proyecto-pie"><h3>Casa Lomas 12-1</h3><span>Arquitectura residencial <span aria-hidden="true">↗</span></span></div>
+          </a>
+        </article>
+        <article class="proyecto revelar" data-nombre="Casa Burgos">
+          <a class="proyecto-abrir" href="#proyecto=casa-burgos" data-proyecto="casa-burgos" aria-label="Explorar Casa Burgos">
+            <div class="proyecto-imagen">
+              <img src="imagenes/casa-burgos-portada.webp" alt="Casa Burgos" loading="lazy" width="1000" height="750">
+              <span class="proyecto-ver">Explorar casa <span aria-hidden="true">↗</span></span>
+              <span class="proyecto-numero">03 / 14</span>
+            </div>
+            <div class="proyecto-pie"><h3>Casa Burgos</h3><span>Arquitectura residencial <span aria-hidden="true">↗</span></span></div>
+          </a>
+        </article>
+        <article class="proyecto revelar" data-nombre="Casa Staines">
+          <a class="proyecto-abrir" href="#proyecto=casa-staines" data-proyecto="casa-staines" aria-label="Explorar Casa Staines">
+            <div class="proyecto-imagen">
+              <img src="imagenes/casa-staines-portada.webp" alt="Casa Staines" loading="lazy" width="1000" height="750">
+              <span class="proyecto-ver">Explorar casa <span aria-hidden="true">↗</span></span>
+              <span class="proyecto-numero">04 / 14</span>
+            </div>
+            <div class="proyecto-pie"><h3>Casa Staines</h3><span>Arquitectura residencial <span aria-hidden="true">↗</span></span></div>
+          </a>
+        </article>
+        <article class="proyecto revelar" data-nombre="Casa Jacarandas">
+          <a class="proyecto-abrir" href="#proyecto=casa-jacarandas" data-proyecto="casa-jacarandas" aria-label="Explorar Casa Jacarandas">
+            <div class="proyecto-imagen">
+              <img src="imagenes/casa-jacarandas-portada.webp" alt="Casa Jacarandas" loading="lazy" width="1000" height="750">
+              <span class="proyecto-ver">Explorar casa <span aria-hidden="true">↗</span></span>
+              <span class="proyecto-numero">05 / 14</span>
+            </div>
+            <div class="proyecto-pie"><h3>Casa Jacarandas</h3><span>Arquitectura residencial <span aria-hidden="true">↗</span></span></div>
+          </a>
+        </article>
+        <article class="proyecto revelar" data-nombre="Casa Olmecas">
+          <a class="proyecto-abrir" href="#proyecto=casa-olmecas" data-proyecto="casa-olmecas" aria-label="Explorar Casa Olmecas">
+            <div class="proyecto-imagen">
+              <img src="imagenes/casa-olmecas-portada.webp" alt="Casa Olmecas" loading="lazy" width="1000" height="750">
+              <span class="proyecto-ver">Explorar casa <span aria-hidden="true">↗</span></span>
+              <span class="proyecto-numero">06 / 14</span>
+            </div>
+            <div class="proyecto-pie"><h3>Casa Olmecas</h3><span>Arquitectura residencial <span aria-hidden="true">↗</span></span></div>
+          </a>
+        </article>
+        <article class="proyecto revelar" data-nombre="Casa Lomas 12-3" hidden>
+          <a class="proyecto-abrir" href="#proyecto=casa-lomas-12-3" data-proyecto="casa-lomas-12-3" aria-label="Explorar Casa Lomas 12-3">
+            <div class="proyecto-imagen">
+              <img src="imagenes/casa-lomas-12-3-portada.webp" alt="Casa Lomas 12-3" loading="lazy" width="1000" height="750">
+              <span class="proyecto-ver">Explorar casa <span aria-hidden="true">↗</span></span>
+              <span class="proyecto-numero">07 / 14</span>
+            </div>
+            <div class="proyecto-pie"><h3>Casa Lomas 12-3</h3><span>Arquitectura residencial <span aria-hidden="true">↗</span></span></div>
+          </a>
+        </article>
+        <article class="proyecto revelar" data-nombre="Casa Nacozari" hidden>
+          <a class="proyecto-abrir" href="#proyecto=casa-nacozari" data-proyecto="casa-nacozari" aria-label="Explorar Casa Nacozari">
+            <div class="proyecto-imagen">
+              <img src="imagenes/casa-nacozari-portada.webp" alt="Casa Nacozari" loading="lazy" width="1000" height="750">
+              <span class="proyecto-ver">Explorar casa <span aria-hidden="true">↗</span></span>
+              <span class="proyecto-numero">08 / 14</span>
+            </div>
+            <div class="proyecto-pie"><h3>Casa Nacozari</h3><span>Arquitectura residencial <span aria-hidden="true">↗</span></span></div>
+          </a>
+        </article>
+        <article class="proyecto revelar" data-nombre="Casa Olintepec" hidden>
+          <a class="proyecto-abrir" href="#proyecto=casa-olintepec" data-proyecto="casa-olintepec" aria-label="Explorar Casa Olintepec">
+            <div class="proyecto-imagen">
+              <img src="imagenes/casa-olintepec-portada.webp" alt="Casa Olintepec" loading="lazy" width="1000" height="750">
+              <span class="proyecto-ver">Explorar casa <span aria-hidden="true">↗</span></span>
+              <span class="proyecto-numero">09 / 14</span>
+            </div>
+            <div class="proyecto-pie"><h3>Casa Olintepec</h3><span>Arquitectura residencial <span aria-hidden="true">↗</span></span></div>
+          </a>
+        </article>
+        <article class="proyecto revelar" data-nombre="Casa Cobá" hidden>
+          <a class="proyecto-abrir" href="#proyecto=casa-coba" data-proyecto="casa-coba" aria-label="Explorar Casa Cobá">
+            <div class="proyecto-imagen">
+              <img src="imagenes/casa-coba-portada.webp" alt="Casa Cobá" loading="lazy" width="1000" height="750">
+              <span class="proyecto-ver">Explorar casa <span aria-hidden="true">↗</span></span>
+              <span class="proyecto-numero">10 / 14</span>
+            </div>
+            <div class="proyecto-pie"><h3>Casa Cobá</h3><span>Arquitectura residencial <span aria-hidden="true">↗</span></span></div>
+          </a>
+        </article>
+        <article class="proyecto revelar" data-nombre="Casa Serena" hidden>
+          <a class="proyecto-abrir" href="#proyecto=casa-serena" data-proyecto="casa-serena" aria-label="Explorar Casa Serena">
+            <div class="proyecto-imagen">
+              <img src="imagenes/casa-serena-portada.webp" alt="Casa Serena" loading="lazy" width="1000" height="750">
+              <span class="proyecto-ver">Explorar casa <span aria-hidden="true">↗</span></span>
+              <span class="proyecto-numero">11 / 14</span>
+            </div>
+            <div class="proyecto-pie"><h3>Casa Serena</h3><span>Arquitectura residencial <span aria-hidden="true">↗</span></span></div>
+          </a>
+        </article>
+        <article class="proyecto revelar" data-nombre="Casa Yeca" hidden>
+          <a class="proyecto-abrir" href="#proyecto=casa-yeca" data-proyecto="casa-yeca" aria-label="Explorar Casa Yeca">
+            <div class="proyecto-imagen">
+              <img src="imagenes/casa-yeca-portada.webp" alt="Casa Yeca" loading="lazy" width="1000" height="750">
+              <span class="proyecto-ver">Explorar casa <span aria-hidden="true">↗</span></span>
+              <span class="proyecto-numero">12 / 14</span>
+            </div>
+            <div class="proyecto-pie"><h3>Casa Yeca</h3><span>Arquitectura residencial <span aria-hidden="true">↗</span></span></div>
+          </a>
+        </article>
+        <article class="proyecto revelar" data-nombre="Casa Atlacomulco" hidden>
+          <a class="proyecto-abrir" href="#proyecto=casa-atlacomulco" data-proyecto="casa-atlacomulco" aria-label="Explorar Casa Atlacomulco">
+            <div class="proyecto-imagen">
+              <img src="imagenes/casa-atlacomulco-portada.webp" alt="Casa Atlacomulco" loading="lazy" width="1000" height="750">
+              <span class="proyecto-ver">Explorar casa <span aria-hidden="true">↗</span></span>
+              <span class="proyecto-numero">13 / 14</span>
+            </div>
+            <div class="proyecto-pie"><h3>Casa Atlacomulco</h3><span>Arquitectura residencial <span aria-hidden="true">↗</span></span></div>
+          </a>
+        </article>
+        <article class="proyecto revelar" data-nombre="Casas Claroscuro" hidden>
+          <a class="proyecto-abrir" href="#proyecto=casas-claroscuro" data-proyecto="casas-claroscuro" aria-label="Explorar Casas Claroscuro">
+            <div class="proyecto-imagen">
+              <img src="imagenes/casas-claroscuro-portada.webp" alt="Casas Claroscuro" loading="lazy" width="1000" height="750">
+              <span class="proyecto-ver">Explorar casa <span aria-hidden="true">↗</span></span>
+              <span class="proyecto-numero">14 / 14</span>
+            </div>
+            <div class="proyecto-pie"><h3>Casas Claroscuro</h3><span>Arquitectura residencial <span aria-hidden="true">↗</span></span></div>
+          </a>
+        </article>
+      </div>
+      <p id="sin-resultados" hidden>No encontramos una casa con ese nombre. Prueba con otro nombre.</p>
+      <div class="mas-proyectos"><button class="boton-linea" id="ver-mas" type="button">Descubrir todas las casas <span aria-hidden="true">↗</span></button></div>
+      <noscript><p>Activa JavaScript para explorar todas las casas y abrir sus galerías.</p></noscript>
+    </section>
+    <section class="estudio" id="estudio" aria-labelledby="estudio-titulo">
+      <div class="estudio-imagen"><img src="imagenes/casa-staines-02.webp" alt="Patio de Casa Staines, con vegetación y luz natural" loading="lazy" width="1800" height="1200"><span>La naturaleza también habita aquí.</span></div>
+      <div class="estudio-texto revelar"><p class="micro">03 / Somos DOCE</p><h2 id="estudio-titulo">El lujo de<br>sentirte <em>en casa.</em></h2><p>La luz que transforma un muro. Un jardín que se vuelve parte del interior. Materiales que invitan a quedarse. Nos interesan los detalles que hacen de una casa un lugar propio.</p><div class="principios"><span><b>01</b> Una arquitectura para tu vida</span><span><b>02</b> La relación con el entorno</span><span><b>03</b> El cuidado de cada espacio</span></div><a class="enlace-claro" href="#proyectos">Conoce nuestras casas <span aria-hidden="true">↗</span></a></div>
+    </section>
+    <section class="contacto contenedor" id="contacto" aria-labelledby="contacto-titulo">
+      <div class="revelar"><p class="micro">04 / Empecemos una conversación</p><h2 id="contacto-titulo">Tu manera de vivir.<br>Nuestro próximo <em>proyecto.</em></h2><p>Cuéntanos qué imaginas para tu casa.<br>Encuéntranos en nuestras redes.</p></div>
+      <div class="redes revelar"><a href="https://www.instagram.com/_d.o.c.e_/" target="_blank" rel="noopener noreferrer"><span><small>SÍGUENOS Y ESCRÍBENOS</small>Instagram</span><span aria-hidden="true">↗</span></a><a href="https://www.facebook.com/people/Doce/100071680596299/" target="_blank" rel="noopener noreferrer"><span><small>CONOCE MÁS DE DOCE</small>Facebook</span><span aria-hidden="true">↗</span></a></div>
+    </section>
+  </main>
+  <footer class="pie contenedor"><div class="pie-identidad"><img src="logos/LOGO-12-NEGRO.png" alt="DOCE arquitectura residencial" width="283" height="290"><span>DOCE · Arquitectura residencial<br><a href="https://33g.com.mx/" target="_blank" rel="noopener noreferrer">Una rama de 33 Grados ↗</a></span></div><span>© <span id="anio">2026</span> DOCE</span><a href="#inicio">Volver arriba ↑</a></footer>
+  <!-- GALERÍA: navegación con botones, teclado o deslizamiento táctil. -->
+  <dialog id="galeria" aria-labelledby="galeria-titulo">
+    <div class="galeria-cabecera"><div><span class="micro">DOCE / Arquitectura residencial</span><h2 id="galeria-titulo"></h2></div><button id="cerrar-galeria" class="cerrar" type="button" aria-label="Cerrar galería">Cerrar <span aria-hidden="true">×</span></button></div>
+    <div class="galeria-visor" id="galeria-visor" aria-busy="false">
+      <img class="galeria-imagen activa" id="galeria-foto-a" alt=""><img class="galeria-imagen" id="galeria-foto-b" alt="" aria-hidden="true">
+      <button class="flecha anterior" id="foto-anterior" type="button" aria-label="Fotografía anterior">←</button><button class="flecha siguiente" id="foto-siguiente" type="button" aria-label="Fotografía siguiente">→</button>
+    </div>
+    <div class="galeria-inferior"><span id="galeria-contador" aria-live="polite"></span><p>Desliza o usa ← → para recorrer · Esc para cerrar</p></div>
+    <p class="galeria-error" id="galeria-error" role="status" hidden>No se pudo cargar esta fotografía. Prueba otra imagen.</p>
+    <div id="miniaturas" class="miniaturas" aria-label="Fotografías de la casa"></div>
+    <div class="otras-casas"><button id="casa-anterior" type="button">← Casa anterior</button><span>Continúa explorando</span><button id="casa-siguiente" type="button">Siguiente casa →</button></div>
+  </dialog>
+</body>
+</html>

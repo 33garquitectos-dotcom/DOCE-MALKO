@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi primera página</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef2ff;
+      color: #172554;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    main {
+      max-width: 600px;
+      margin: auto;
+      padding: 32px;
+      background: white;
+      border-radius: 20px;
+    }
+
+    button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>¡Bienvenido a mi página!</h1>
+    <p>Estoy aprendiendo a programar en Visual Studio Code.</p>
+    <button onclick="saludar()">Haz clic aquí</button>
+    <p id="mensaje" aria-live="polite"></p>
+  </main>
+
+  <script>
+    function saludar() {
+      document.getElementById("mensaje").textContent =
+        "¡Tu primera página ya funciona! 🎉";
+    }
+  </script>
+</body>
+</html>

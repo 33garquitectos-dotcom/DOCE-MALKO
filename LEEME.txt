@@ -1,0 +1,31 @@
+DOCE — ARQUITECTURA RESIDENCIAL
+Una rama de 33 Grados especializada en casas.
+
+ABRIR: doble clic en index.html desde el Explorador de archivos.
+EDITAR: abre esta carpeta en Visual Studio Code, guarda con Ctrl + S
+y actualiza el navegador con Ctrl + F5.
+
+index.html: textos, logos, enlaces sociales y tarjetas de casas.
+estilos.css: colores, tamaños, adaptación al celular y transiciones.
+proyectos.js: nombres, portadas y fotografías de las 14 casas.
+script.js: carrusel, búsqueda, navegación y galerías.
+logos: copias de los PNG originales proporcionados.
+imagenes: copias optimizadas de las fotografías originales.
+
+NAVEGACIÓN
+La portada cambia cada 6.5 segundos con un fundido suave.
+Las flechas y las cuatro marcas permiten elegir una casa.
+El botón de pausa detiene la reproducción automática.
+Se pausa también al abrir una galería, ocultar la pestaña o dejar de
+ver la portada. Se respeta la preferencia de movimiento reducido.
+En cada galería: flechas, miniaturas, teclado o deslizamiento táctil.
+Puedes pasar directamente a la siguiente casa sin cerrar la galería.
+Escape o Cerrar regresa al portafolio.
+El buscador encuentra casas por nombre, con o sin acentos.
+
+REDES OFICIALES PROPORCIONADAS
+Instagram: https://www.instagram.com/_d.o.c.e_/
+Facebook: https://www.facebook.com/people/Doce/100071680596299/
+
+Los originales se conservan. Esta página aún no está publicada.
+Los textos editoriales son una propuesta editable para tu revisión.

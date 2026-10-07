@@ -1,0 +1,24 @@
+TU PÁGINA DE 33 GRADOS
+
+Para verla: abre index.html con Chrome o Edge. No necesitas instalar nada.
+Para editarla: abre esta carpeta en Visual Studio Code.
+Guarda los cambios con Ctrl + S y actualiza el navegador con F5.
+
+ARCHIVOS
+index.html: estructura, textos y tarjetas de proyectos.
+estilos.css: colores, tamaños, diseño y ajustes para celulares.
+proyectos.js: nombres y fotografías de las galerías.
+script.js: filtros y funcionamiento de la galería.
+imagenes: copias optimizadas de tus imágenes originales.
+
+CAMBIOS SENCILLOS
+1. Para cambiar el título, busca “La forma de” en index.html.
+2. Para cambiar los colores, edita las variables al inicio de estilos.css.
+3. Para reemplazar una foto, guarda la nueva imagen en imagenes y cambia
+   su ruta en proyectos.js; la portada de cada tarjeta está en index.html.
+4. Para cambiar el nombre de un proyecto, cámbialo en index.html y proyectos.js.
+
+Las fotografías originales se conservan en RESUMEN CASAS 33G-12.
+Esta es una versión local. Aún no está publicada en 33g.com.mx.
+Los textos del estudio son una propuesta editable. Antes de publicar,
+revisa los textos y agrega tus datos de contacto verificados.
