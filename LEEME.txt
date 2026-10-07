@@ -13,9 +13,11 @@ logos: copias de los PNG originales proporcionados.
 imagenes: copias optimizadas de las fotografías originales.
 
 NAVEGACIÓN
-La portada cambia cada 6.5 segundos con un fundido suave.
+La portada y las galerías cambian cada 3 segundos con un fundido suave.
 Las flechas y las cuatro marcas permiten elegir una casa.
 El botón de pausa detiene la reproducción automática.
+En la galería hay un botón Pausar / Reproducir, pantalla completa y
+un enlace para abrir la imagen en detalle. El avance manual pausa el visor.
 Se pausa también al abrir una galería, ocultar la pestaña o dejar de
 ver la portada. Se respeta la preferencia de movimiento reducido.
 En cada galería: flechas, miniaturas, teclado o deslizamiento táctil.
@@ -27,5 +29,15 @@ REDES OFICIALES PROPORCIONADAS
 Instagram: https://www.instagram.com/_d.o.c.e_/
 Facebook: https://www.facebook.com/people/Doce/100071680596299/
 
-Los originales se conservan. Esta página aún no está publicada.
+FORMULARIO
+mejoras.css: estilo del nuevo visor y del formulario de tres pasos.
+formulario.js: preguntas, validación, envío y estados de confirmación/error.
+configuracion.js: identificador público de FormSubmit, activado y configurado.
+Nunca escribas el correo destinatario ni contraseñas en archivos públicos.
+La confirmación en pantalla solo aparece si el servicio confirma el envío.
+Podrás responder al cliente desde el mensaje recibido mediante Reply-To.
+
+Los originales se conservan. Esta actualización debe subirse a GitHub Pages.
+La web publicada por el usuario está en:
+https://33garquitectos-dotcom.github.io/DOCE-MALKO/
 Los textos editoriales son una propuesta editable para tu revisión.

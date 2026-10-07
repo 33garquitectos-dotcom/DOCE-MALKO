@@ -1,0 +1,70 @@
+/* VISOR: cada foto permanece quieta. Fundido limpio, sin zoom automático. */
+.portada-slide{transition:opacity .55s ease}
+.portada-slide img,.portada-slide.activa img{transform:none;transition:none}
+.carrusel-controles>#portada-pausa{width:112px;border:1px solid #ffffff70;border-radius:2px;font-size:11px;white-space:nowrap}
+.galeria-imagen{transition:opacity .5s ease}
+dialog{width:min(1530px,calc(100vw - 40px));max-height:97svh;padding:23px 28px;border-color:#ffffff25}
+dialog[open]{animation:none}
+.galeria-visor{height:61svh;min-height:220px}
+.visor-herramientas{display:flex;justify-content:space-between;gap:18px;align-items:center;margin-bottom:15px}
+.visor-herramientas>div{display:flex;align-items:center;gap:20px}
+.visor-herramientas button,.visor-herramientas a{background:transparent;border:1px solid #89907f;color:var(--fondo);padding:10px 15px;font-size:11px;white-space:nowrap}
+.visor-herramientas a{border-color:transparent;padding-inline:0}
+.visor-herramientas #galeria-pausa{min-width:115px;background:var(--fondo);color:var(--oscuro);border-color:var(--fondo)}
+#galeria-ritmo{font-size:11px;color:#bfc5b6}
+.otras-casas #consultar-casa{border-bottom:1px solid #a4af96;padding-bottom:8px;color:#eed5bb}
+.galeria-contenido:fullscreen{max-width:none;width:100vw;height:100svh;max-height:none;overflow-y:auto;background:var(--oscuro);color:var(--fondo);border:0;padding:24px 45px}
+.galeria-contenido:fullscreen .galeria-visor{height:calc(100svh - 280px)}
+/* CONSULTA: tres pasos cortos y confirmación real del servidor. */
+.contacto{grid-template-columns:1fr 1.25fr;gap:85px;align-items:start}
+.contacto-intro{padding-top:15px}
+.contacto .contacto-intro h2{font-size:clamp(38px,4.2vw,63px)}
+.contacto .contacto-intro>p:not(.micro){max-width:425px;font-size:14px}
+.proceso-contacto{padding:0;list-style:none;margin:40px 0}
+.proceso-contacto>li{display:flex;gap:20px;margin-bottom:24px}
+.proceso-contacto>li>span{font-size:10px;color:var(--acento);padding-top:3px}
+.proceso-contacto strong{font-size:13px;font-weight:400}
+.contacto .proceso-contacto p{font-size:12px;margin:8px 0 0;max-width:320px;line-height:1.6}
+.redes-compactas{display:flex;gap:30px;font-size:11px;margin-top:30px}
+.redes-compactas a{border-bottom:1px solid var(--borde);padding-bottom:8px}
+.formulario-panel{padding:36px;background:#e8e9e1;border:1px solid #d8dbd0;min-width:0}
+.formulario-encabezado{display:flex;justify-content:space-between;align-items:center;gap:15px}
+.formulario-encabezado>.micro{font-size:9px;margin:0;color:var(--tinta)}
+#paso-contador{font-size:10px;color:var(--suave);white-space:nowrap}
+.pasos-formulario{display:flex;gap:20px;list-style:none;padding:0;margin:24px 0 32px;counter-reset:paso}
+.pasos-formulario>li{flex:1;position:relative;padding:0 0 12px;border-bottom:2px solid #c9cebf;font-size:10px;color:var(--suave);white-space:nowrap}
+.pasos-formulario>li::before{counter-increment:paso;content:'0' counter(paso) ' ';font-size:9px;margin-right:5px}
+.pasos-formulario>.actual{color:var(--tinta);border-color:var(--tinta)}
+.pasos-formulario>.completo{border-color:#899779}
+.paso-formulario{border:0;padding:0;margin:0;min-width:0}
+.paso-formulario legend{font-size:26px;letter-spacing:-.7px;margin-bottom:25px;line-height:1.15}
+.paso-formulario label:not(.consentimiento){display:block;font-size:11px;margin:18px 0 9px;line-height:1.5}
+.paso-formulario input:not([type=checkbox]),.paso-formulario select,.paso-formulario textarea{display:block;width:100%;max-width:100%;min-width:0;border:1px solid #c4c9ba;border-radius:0;background:#f6f6f1;color:var(--tinta);padding:13px 12px;font-size:13px;line-height:1.5;font-family:inherit}
+.paso-formulario input::placeholder,.paso-formulario textarea::placeholder{color:#777f6d}
+.paso-formulario textarea{resize:vertical;min-height:115px}
+.campos-dobles{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.campos-dobles>div{min-width:0}
+.acciones-formulario{display:flex;gap:18px;align-items:center;justify-content:space-between;margin-top:27px}
+.formulario-enviar{background:var(--oscuro);color:var(--fondo);border:1px solid var(--oscuro);padding:15px 20px;font-size:11px;white-space:nowrap}
+.formulario-enviar:disabled{opacity:.55;cursor:wait}
+.formulario-atras{border:0;padding:12px 0;background:none;font-size:11px}
+.campos-requeridos{font-size:9px;color:var(--suave)}
+.acciones-formulario:has(#paso-anterior:not([hidden])) .campos-requeridos{display:none}
+.contacto .formulario-estado{font-size:12px;line-height:1.6;margin:20px 0 0}
+.formulario-estado:empty{display:none}
+.formulario-estado[data-tipo=error]{color:#8c3e27;background:#f2ded1;padding:14px}
+.campo-trampa{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.resumen-consulta{border-left:2px solid #8c967e;padding:12px 14px;margin-top:25px;background:#dce0d3}
+.resumen-consulta strong{font-size:11px;font-weight:400}
+.contacto .resumen-consulta p{font-size:11px;line-height:1.6;margin:6px 0 0;overflow-wrap:anywhere}
+.consentimiento{display:flex;gap:10px;align-items:flex-start;font-size:11px;line-height:1.6;margin:23px 0 0}
+.consentimiento input{accent-color:var(--tinta);width:17px;height:17px;flex-shrink:0;margin:2px 0 0}
+.contacto p.nota-datos{font-size:10px;line-height:1.6;margin-top:13px}
+.consulta-enviada{padding:40px 0 10px}
+.consulta-enviada h3{font-size:37px;line-height:1.1;letter-spacing:-1px;margin:25px 0}
+.contacto .consulta-enviada p{font-size:13px;line-height:1.85}
+.consulta-enviada button{margin-top:30px}
+@media(max-width:1000px){.contacto{gap:40px}.formulario-panel{padding:26px}.campos-dobles{gap:12px}.pasos-formulario{gap:12px}.visor-herramientas>div{gap:13px}}
+@media(max-width:760px){.contacto{grid-template-columns:1fr;gap:35px}.contacto-intro{padding:0}.proceso-contacto{margin:28px 0}.formulario-panel{padding:27px}.visor-herramientas{align-items:flex-start}.visor-herramientas>div:first-child{flex-direction:column;align-items:flex-start;gap:10px}.visor-herramientas>div:last-child{flex-direction:column;gap:8px;align-items:flex-end}#galeria-ritmo{font-size:9px}.visor-herramientas button,.visor-herramientas a{font-size:10px;padding:10px}.galeria-visor{height:49svh}.galeria-cabecera{margin-bottom:15px}dialog{padding:17px;width:calc(100vw - 16px)}.otras-casas{gap:10px;flex-wrap:wrap}.otras-casas #consultar-casa{order:-1;width:100%;padding-bottom:12px;margin-bottom:5px}.otras-casas>button{font-size:10px}.galeria-contenido:fullscreen{padding:15px}.galeria-contenido:fullscreen .galeria-visor{height:calc(100svh - 355px)}}
+@media(max-width:450px){.carrusel-controles{flex-wrap:wrap;gap:8px}.carrusel-controles>#portada-pausa{width:100%;margin-top:3px;height:34px}.portada-pie{bottom:14px;gap:10px}.portada-contenido{top:40%}.formulario-panel{padding:23px 19px}.formulario-encabezado .micro{font-size:8px;letter-spacing:1.2px}.pasos-formulario{gap:8px}.pasos-formulario>li{font-size:9px}.pasos-formulario>li::before{display:none}.paso-formulario legend{font-size:25px}.campos-dobles{grid-template-columns:1fr;gap:0}.paso-formulario input:not([type=checkbox]),.paso-formulario select,.paso-formulario textarea{font-size:16px}.formulario-enviar{padding:14px 16px;font-size:11px}.contacto .contacto-intro h2{font-size:41px}.galeria-inferior p{font-size:8px}.visor-herramientas #galeria-pausa{min-width:110px}.galeria-visor{height:44svh}}
+@media(prefers-reduced-motion:reduce){.portada-slide,.galeria-imagen{transition:none}}

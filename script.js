@@ -5,6 +5,7 @@ const galeria = document.querySelector('#galeria');
 const portada = document.querySelector('.portada');
 const menu = document.querySelector('#menu');
 const menuBoton = document.querySelector('#menu-boton');
+const TIEMPO_POR_IMAGEN = 3000;
 
 // MENÚ Y CABECERA
 function cerrarMenu() {
@@ -80,14 +81,14 @@ let focoPortada = false;
 let temporizador;
 
 function actualizarPausa() {
-  botonPausa.textContent = pausaManual ? '▷' : 'Ⅱ';
+  botonPausa.textContent = pausaManual ? '▷ Reproducir' : 'Ⅱ Pausar';
   botonPausa.setAttribute('aria-label', pausaManual ? 'Reanudar transiciones automáticas' : 'Pausar transiciones automáticas');
   botonPausa.setAttribute('aria-pressed', String(pausaManual));
 }
 function programarPortada() {
   clearTimeout(temporizador);
   if (!pausaManual && !document.hidden && portadaVisible && !focoPortada && !galeria.open) {
-    temporizador = setTimeout(() => cambiarPortada(slideActual + 1), 6500);
+    temporizador = setTimeout(() => cambiarPortada(slideActual + 1), TIEMPO_POR_IMAGEN);
   }
 }
 async function cambiarPortada(indice) {
@@ -109,11 +110,15 @@ async function cambiarPortada(indice) {
   const flecha = document.createElement('span'); flecha.textContent = '↗'; flecha.setAttribute('aria-hidden', 'true'); enlacePortada.append(flecha);
   programarPortada();
 }
-document.querySelector('#portada-anterior').addEventListener('click', () => cambiarPortada(slideActual - 1));
-document.querySelector('#portada-siguiente').addEventListener('click', () => cambiarPortada(slideActual + 1));
-indicadores.forEach(b => b.addEventListener('click', () => cambiarPortada(Number(b.dataset.slide))));
+function pausarPortada() {
+  pausaManual = true; peticionSlide++; actualizarPausa(); programarPortada();
+}
+document.querySelector('#portada-anterior').addEventListener('click', () => { pausarPortada(); cambiarPortada(slideActual - 1); });
+document.querySelector('#portada-siguiente').addEventListener('click', () => { pausarPortada(); cambiarPortada(slideActual + 1); });
+indicadores.forEach(b => b.addEventListener('click', () => { pausarPortada(); cambiarPortada(Number(b.dataset.slide)); }));
 botonPausa.addEventListener('click', () => {
   pausaManual = !pausaManual;
+  if (pausaManual) peticionSlide++;
   // Una orden explícita de reproducir también reanuda con el botón enfocado.
   if (!pausaManual) focoPortada = false;
   actualizarPausa(); programarPortada();
@@ -136,12 +141,65 @@ const miniaturas = document.querySelector('#miniaturas');
 const visor = document.querySelector('#galeria-visor');
 let proyectoActual;
 let fotoActual = 0;
+let fotoMostrada = 0;
 let capaActual = 0;
 let peticionFoto = 0;
 let botonOrigen;
 let hashAnterior = '#proyectos';
+let pausaGaleria = movimientoReducido.matches;
+let temporizadorGaleria;
+const botonPausaGaleria = document.querySelector('#galeria-pausa');
+
+function actualizarPausaGaleria() {
+  botonPausaGaleria.textContent = pausaGaleria ? '▷ Reproducir' : 'Ⅱ Pausar';
+  botonPausaGaleria.setAttribute('aria-pressed', String(pausaGaleria));
+  botonPausaGaleria.setAttribute('aria-label', pausaGaleria ? 'Reproducir fotos cada 3 segundos' : 'Pausar fotos para ver los detalles');
+  document.querySelector('#galeria-ritmo').textContent = proyectoActual?.photos.length === 1 ? 'Imagen única' : pausaGaleria ? 'En pausa · explora a tu ritmo' : 'Una imagen cada 3 segundos';
+}
+function programarGaleria() {
+  clearTimeout(temporizadorGaleria);
+  if (galeria.open && !pausaGaleria && !document.hidden && proyectoActual.photos.length > 1) {
+    temporizadorGaleria = setTimeout(() => mostrarFoto(fotoActual + 1), TIEMPO_POR_IMAGEN);
+  }
+}
+function pausarGaleria() {
+  pausaGaleria = true;
+  if (capas.some(c => c.classList.contains('activa'))) {
+    peticionFoto++; fotoActual = fotoMostrada; visor.setAttribute('aria-busy', 'false');
+  }
+  actualizarPausaGaleria(); programarGaleria();
+}
+function fotoManual(indice) { pausarGaleria(); mostrarFoto(indice); }
+botonPausaGaleria.addEventListener('click', () => {
+  if (!pausaGaleria) pausarGaleria();
+  else { pausaGaleria = false; actualizarPausaGaleria(); programarGaleria(); }
+});
+document.addEventListener('visibilitychange', programarGaleria);
+movimientoReducido.addEventListener('change', e => { if (e.matches && galeria.open) pausarGaleria(); });
+document.querySelector('#galeria-detalle').addEventListener('click', pausarGaleria);
+const contenidoGaleria = document.querySelector('#galeria-contenido');
+document.querySelector('#galeria-pantalla').hidden = !document.fullscreenEnabled;
+document.querySelector('#galeria-pantalla').addEventListener('click', async () => {
+  pausarGaleria();
+  try {
+    if (document.fullscreenElement) await document.exitFullscreen();
+    else if (contenidoGaleria.requestFullscreen) await contenidoGaleria.requestFullscreen();
+  } catch { document.querySelector('#galeria-ritmo').textContent = 'Usa “Ver en detalle” para abrir la imagen completa.'; }
+});
+document.addEventListener('fullscreenchange', () => {
+  document.querySelector('#galeria-pantalla').textContent = document.fullscreenElement ? 'Salir de pantalla completa' : 'Pantalla completa';
+});
+document.querySelector('#consultar-casa').addEventListener('click', () => {
+  document.querySelector('#casa-referencia').value = proyectoActual.name;
+  document.dispatchEvent(new Event('doce:consultar-casa'));
+  galeria.close();
+  history.replaceState(null, '', '#contacto');
+  document.querySelector('#contacto').scrollIntoView({ behavior:movimientoReducido.matches ? 'instant' : 'smooth' });
+  document.querySelector('#tipo-proyecto').focus({ preventScroll:true });
+});
 
 async function mostrarFoto(indice, primera = false) {
+  clearTimeout(temporizadorGaleria);
   const pedido = ++peticionFoto;
   fotoActual = (indice + proyectoActual.photos.length) % proyectoActual.photos.length;
   const elegida = fotoActual;
@@ -150,7 +208,7 @@ async function mostrarFoto(indice, primera = false) {
   document.querySelector('#galeria-error').hidden = true;
   const precarga = new Image(); precarga.src = imagen.src;
   try { await precarga.decode(); } catch {
-    if (pedido === peticionFoto) { visor.setAttribute('aria-busy', 'false'); document.querySelector('#galeria-error').hidden = false; }
+    if (pedido === peticionFoto) { visor.setAttribute('aria-busy', 'false'); document.querySelector('#galeria-error').hidden = false; pausaGaleria = true; actualizarPausaGaleria(); }
     return;
   }
   if (pedido !== peticionFoto || !galeria.open) return;
@@ -159,18 +217,23 @@ async function mostrarFoto(indice, primera = false) {
   capas[destino].alt = imagen.alt;
   capas.forEach((c, i) => { c.classList.toggle('activa', i === destino); c.setAttribute('aria-hidden', String(i !== destino)); });
   capaActual = destino;
+  fotoMostrada = elegida;
+  document.querySelector('#galeria-detalle').href = imagen.src;
   visor.setAttribute('aria-busy', 'false');
   document.querySelector('#galeria-contador').textContent = `${String(elegida + 1).padStart(2, '0')} / ${String(proyectoActual.photos.length).padStart(2, '0')}`;
   [...miniaturas.children].forEach((b, i) => b.setAttribute('aria-pressed', String(i === elegida)));
   const boton = miniaturas.children[elegida];
   if (boton) miniaturas.scrollTo({ left:Math.max(0,boton.offsetLeft - miniaturas.offsetLeft - miniaturas.clientWidth / 2 + boton.offsetWidth / 2), behavior:movimientoReducido.matches ? 'instant' : 'smooth' });
   const siguiente = new Image(); siguiente.src = proyectoActual.photos[(elegida + 1) % proyectoActual.photos.length].src;
+  programarGaleria();
 }
 
 function abrirProyecto(id, origen) {
   const casa = proyectos.find(p => p.id === id);
   if (!casa) return;
   proyectoActual = casa;
+  pausaGaleria = movimientoReducido.matches;
+  clearTimeout(temporizadorGaleria);
   if (origen) botonOrigen = origen;
   peticionFoto++;
   capas.forEach(c => { c.classList.remove('activa'); c.removeAttribute('src'); });
@@ -182,10 +245,12 @@ function abrirProyecto(id, origen) {
     boton.setAttribute('aria-label', `Ver fotografía ${i + 1} de ${casa.name}`);
     boton.setAttribute('aria-pressed', 'false');
     const img = document.createElement('img'); img.src = imagen.src; img.alt = ''; img.loading = 'lazy';
-    boton.append(img); boton.addEventListener('click', () => mostrarFoto(i)); miniaturas.append(boton);
+    boton.append(img); boton.addEventListener('click', () => fotoManual(i)); miniaturas.append(boton);
   });
   document.querySelector('#foto-anterior').hidden = casa.photos.length === 1;
   document.querySelector('#foto-siguiente').hidden = casa.photos.length === 1;
+  botonPausaGaleria.hidden = casa.photos.length === 1;
+  actualizarPausaGaleria();
   if (!galeria.open) galeria.showModal();
   document.body.classList.add('galeria-abierta');
   mostrarFoto(0, true); programarPortada();
@@ -203,12 +268,14 @@ function proyectoVecino(delta) {
   const casa = proyectos[(i + delta + proyectos.length) % proyectos.length];
   history.replaceState(null, '', `#proyecto=${casa.id}`); abrirProyecto(casa.id);
 }
-document.querySelector('#foto-anterior').addEventListener('click', () => mostrarFoto(fotoActual - 1));
-document.querySelector('#foto-siguiente').addEventListener('click', () => mostrarFoto(fotoActual + 1));
+document.querySelector('#foto-anterior').addEventListener('click', () => fotoManual(fotoMostrada - 1));
+document.querySelector('#foto-siguiente').addEventListener('click', () => fotoManual(fotoMostrada + 1));
 document.querySelector('#casa-anterior').addEventListener('click', () => proyectoVecino(-1));
 document.querySelector('#casa-siguiente').addEventListener('click', () => proyectoVecino(1));
 document.querySelector('#cerrar-galeria').addEventListener('click', () => galeria.close());
 galeria.addEventListener('close', () => {
+  clearTimeout(temporizadorGaleria);
+  if (document.fullscreenElement === contenidoGaleria) document.exitFullscreen().catch(() => {});
   peticionFoto++; document.body.classList.remove('galeria-abierta');
   if (location.hash.startsWith('#proyecto=')) history.replaceState(null, '', hashAnterior);
   botonOrigen?.focus({ preventScroll:true }); programarPortada();
@@ -219,7 +286,8 @@ galeria.addEventListener('click', e => {
   if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) galeria.close();
 });
 galeria.addEventListener('keydown', e => {
-  if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); mostrarFoto(fotoActual + (e.key === 'ArrowRight' ? 1 : -1)); }
+  if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); fotoManual(fotoMostrada + (e.key === 'ArrowRight' ? 1 : -1)); }
+  if (e.code === 'Space' && !e.target.closest('button,a,input,textarea,select')) { e.preventDefault(); botonPausaGaleria.click(); }
 });
 function seguirRuta() {
   const id = location.hash.startsWith('#proyecto=') ? location.hash.slice(10) : null;
@@ -246,6 +314,6 @@ function gestoHorizontal(elemento, alDeslizar) {
   }, { passive:true });
   elemento.addEventListener('touchcancel', () => { inicio = null; }, { passive:true });
 }
-gestoHorizontal(visor, delta => mostrarFoto(fotoActual + delta));
-gestoHorizontal(portada, delta => cambiarPortada(slideActual + delta));
+gestoHorizontal(visor, delta => fotoManual(fotoMostrada + delta));
+gestoHorizontal(portada, delta => { pausarPortada(); cambiarPortada(slideActual + delta); });
 document.querySelector('#anio').textContent = new Date().getFullYear();

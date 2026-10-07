@@ -8,8 +8,11 @@
   <title>DOCE — Arquitectura residencial · Una rama de 33 Grados</title>
   <link rel="icon" href="logos/LOGO-12-GRIS.png" type="image/png">
   <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="mejoras.css">
   <script src="proyectos.js" defer></script>
   <script src="script.js" defer></script>
+  <script src="configuracion.js" defer></script>
+  <script src="formulario.js" defer></script>
 </head>
 <body>
   <a class="saltar" href="#contenido">Saltar al contenido</a>
@@ -53,7 +56,7 @@
             <button type="button" data-slide="3" aria-label="Mostrar Casa Burgos" aria-pressed="false"><span></span></button>
           </div>
           <button id="portada-siguiente" type="button" aria-label="Siguiente casa en portada">→</button>
-          <button id="portada-pausa" type="button" aria-label="Pausar transiciones automáticas" aria-pressed="false">Ⅱ</button>
+          <button id="portada-pausa" type="button" aria-label="Pausar transiciones automáticas" aria-pressed="false">Ⅱ Pausar</button>
         </div>
         <a class="bajar" href="#proyectos">Explora las casas <span aria-hidden="true">↓</span></a>
       </div>
@@ -216,14 +219,60 @@
       <div class="estudio-texto revelar"><p class="micro">03 / Somos DOCE</p><h2 id="estudio-titulo">El lujo de<br>sentirte <em>en casa.</em></h2><p>La luz que transforma un muro. Un jardín que se vuelve parte del interior. Materiales que invitan a quedarse. Nos interesan los detalles que hacen de una casa un lugar propio.</p><div class="principios"><span><b>01</b> Una arquitectura para tu vida</span><span><b>02</b> La relación con el entorno</span><span><b>03</b> El cuidado de cada espacio</span></div><a class="enlace-claro" href="#proyectos">Conoce nuestras casas <span aria-hidden="true">↗</span></a></div>
     </section>
     <section class="contacto contenedor" id="contacto" aria-labelledby="contacto-titulo">
-      <div class="revelar"><p class="micro">04 / Empecemos una conversación</p><h2 id="contacto-titulo">Tu manera de vivir.<br>Nuestro próximo <em>proyecto.</em></h2><p>Cuéntanos qué imaginas para tu casa.<br>Encuéntranos en nuestras redes.</p></div>
-      <div class="redes revelar"><a href="https://www.instagram.com/_d.o.c.e_/" target="_blank" rel="noopener noreferrer"><span><small>SÍGUENOS Y ESCRÍBENOS</small>Instagram</span><span aria-hidden="true">↗</span></a><a href="https://www.facebook.com/people/Doce/100071680596299/" target="_blank" rel="noopener noreferrer"><span><small>CONOCE MÁS DE DOCE</small>Facebook</span><span aria-hidden="true">↗</span></a></div>
+      <div class="contacto-intro revelar">
+        <p class="micro">04 / Tu próximo proyecto</p>
+        <h2 id="contacto-titulo">Todo empieza<br>con una <em>idea.</em></h2>
+        <p>Cuéntanos cómo te gustaría vivir. Estas preguntas nos ayudan a entender tu proyecto y preparar una primera conversación contigo.</p>
+        <ol class="proceso-contacto">
+          <li><span>01</span><div><strong>Te escuchamos</strong><p>Nos compartes tus necesidades y lo que imaginas.</p></div></li>
+          <li><span>02</span><div><strong>Revisamos tu proyecto</strong><p>Analizamos la ubicación, el alcance y la información que nos envíes.</p></div></li>
+          <li><span>03</span><div><strong>Conversamos contigo</strong><p>Te contactamos para aclarar detalles y acordar los siguientes pasos.</p></div></li>
+        </ol>
+        <div class="redes-compactas"><a href="https://www.instagram.com/_d.o.c.e_/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://www.facebook.com/people/Doce/100071680596299/" target="_blank" rel="noopener noreferrer">Facebook ↗</a></div>
+      </div>
+      <div class="formulario-panel revelar">
+        <div class="formulario-encabezado"><span class="micro">Diseñemos tu casa</span><span id="paso-contador" aria-live="polite">Paso 1 de 3</span></div>
+        <ol class="pasos-formulario" aria-label="Pasos de la consulta"><li class="actual" aria-current="step">El proyecto</li><li>Tu idea</li><li>Hablemos</li></ol>
+        <form id="consulta-proyecto" method="post" novalidate>
+          <fieldset class="paso-formulario" data-paso="0">
+            <legend>¿Qué te gustaría realizar?</legend>
+            <label for="tipo-proyecto">Tipo de proyecto <span aria-hidden="true">*</span></label>
+            <select id="tipo-proyecto" name="Proyecto" required><option value="">Selecciona una opción</option><option>Diseñar y construir una casa</option><option>Diseñar mi casa — proyecto arquitectónico</option><option>Remodelar o ampliar mi casa</option><option>Diseño de interiores residenciales</option><option>Quiero orientación para empezar</option></select>
+            <label for="ubicacion">¿En qué ciudad o zona? <span aria-hidden="true">*</span></label>
+            <input id="ubicacion" name="Ubicacion" autocomplete="address-level2" placeholder="Ciudad y estado" maxlength="150" required>
+            <div class="campos-dobles"><div><label for="terreno">¿Ya tienes terreno o casa?</label><select id="terreno" name="Terreno"><option>Aún lo estoy definiendo</option>Sí, tengo terreno</option>Sí, tengo una casa</option>Estoy buscando terreno</option></select></div><div><label for="superficie">Superficie aproximada (m²)</label><input id="superficie" name="Superficie_m2" type="number" min="1" max="100000" inputmode="decimal" step="any" placeholder="Opcional"></div></div>
+          </fieldset>
+          <fieldset class="paso-formulario" data-paso="1" hidden>
+            <legend>Imaginemos tu espacio.</legend>
+            <div class="campos-dobles"><div><label for="recamaras">Recámaras que imaginas</label><select id="recamaras" name="Recamaras"><option>Por definir</option>1 a 2</option>3</option>4</option>5 o más</option></select></div><div><label for="cuando">¿Cuándo quieres empezar?</label><select id="cuando" name="Inicio"><option>Estoy explorando opciones</option>Lo antes posible</option>En 3 a 6 meses</option>En 6 a 12 meses</option>Más adelante</option></select></div></div>
+            <label for="presupuesto">Inversión aproximada (opcional)</label><input id="presupuesto" name="Inversion" maxlength="120" placeholder="Monto, rango o por definir">
+            <label for="casa-referencia">¿Alguna de nuestras casas te inspira?</label><select id="casa-referencia" name="Casa_de_referencia"><option value="">Todavía no tengo una favorita</option></select>
+            <label for="mensaje-proyecto">¿Qué es importante para ti? <span aria-hidden="true">*</span></label><textarea id="mensaje-proyecto" name="Mensaje" rows="4" maxlength="3000" minlength="10" placeholder="Cómo quieres vivir, los espacios que necesitas y lo que te gustaría lograr…" required></textarea>
+          </fieldset>
+          <fieldset class="paso-formulario" data-paso="2" hidden>
+            <legend>¿Cómo te contactamos?</legend>
+            <label for="nombre-cliente">Tu nombre <span aria-hidden="true">*</span></label><input id="nombre-cliente" name="name" autocomplete="name" maxlength="100" required>
+            <label for="email-cliente">Tu correo electrónico <span aria-hidden="true">*</span></label><input id="email-cliente" name="email" type="email" autocomplete="email" maxlength="200" placeholder="Para responder a tu solicitud" required>
+            <label for="telefono-cliente">Teléfono / WhatsApp (opcional)</label><input id="telefono-cliente" name="Telefono" type="tel" autocomplete="tel" maxlength="40">
+            <div id="resumen-consulta" class="resumen-consulta"></div>
+            <label class="consentimiento"><input id="consentimiento" name="Consentimiento" type="checkbox" value="Autorizo el contacto sobre mi proyecto" required><span>Autorizo a DOCE a utilizar mis datos para responder a esta solicitud y conversar sobre mi proyecto.</span></label>
+            <p class="nota-datos">El envío se procesa mediante FormSubmit y se dirige al equipo de DOCE para atender tu consulta.</p>
+          </fieldset>
+          <div class="campo-trampa" aria-hidden="true"><label for="sitio-web">Dejar vacío</label><input id="sitio-web" name="_honey" tabindex="-1" autocomplete="off"></div>
+          <p id="formulario-estado" class="formulario-estado" role="status" aria-live="polite"></p>
+          <div class="acciones-formulario"><button type="button" id="paso-anterior" class="formulario-atras" hidden>← Anterior</button><span class="campos-requeridos">* Campos necesarios</span><button type="button" id="paso-siguiente" class="formulario-enviar">Continuar →</button><button type="submit" id="enviar-consulta" class="formulario-enviar" hidden>Enviar mi solicitud ↗</button></div>
+        </form>
+        <div id="consulta-enviada" class="consulta-enviada" tabindex="-1" hidden><span class="micro">El primer paso está dado</span><h3>Gracias por<br>compartir tu <em>idea.</em></h3><p>Tu solicitud fue enviada. El equipo de DOCE revisará la información y te contactará para conocer mejor tus necesidades y acordar los siguientes pasos.</p><button type="button" id="nueva-consulta" class="boton-linea">Enviar otra consulta ↗</button></div>
+        <noscript><p>Activa JavaScript para completar tu consulta o escríbenos a través de Instagram.</p></noscript>
+      </div>
     </section>
   </main>
   <footer class="pie contenedor"><div class="pie-identidad"><img src="logos/LOGO-12-NEGRO.png" alt="DOCE arquitectura residencial" width="283" height="290"><span>DOCE · Arquitectura residencial<br><a href="https://33g.com.mx/" target="_blank" rel="noopener noreferrer">Una rama de 33 Grados ↗</a></span></div><span>© <span id="anio">2026</span> DOCE</span><a href="#inicio">Volver arriba ↑</a></footer>
   <!-- GALERÍA: navegación con botones, teclado o deslizamiento táctil. -->
   <dialog id="galeria" aria-labelledby="galeria-titulo">
+    <div class="galeria-contenido" id="galeria-contenido">
     <div class="galeria-cabecera"><div><span class="micro">DOCE / Arquitectura residencial</span><h2 id="galeria-titulo"></h2></div><button id="cerrar-galeria" class="cerrar" type="button" aria-label="Cerrar galería">Cerrar <span aria-hidden="true">×</span></button></div>
+    <div class="visor-herramientas"><div><button type="button" id="galeria-pausa" aria-pressed="false">Ⅱ Pausar</button><span id="galeria-ritmo" aria-live="polite">Una imagen cada 3 segundos</span></div><div><button type="button" id="galeria-pantalla">Pantalla completa</button><a id="galeria-detalle" target="_blank" rel="noopener noreferrer">Ver en detalle ↗</a></div></div>
     <div class="galeria-visor" id="galeria-visor" aria-busy="false">
       <img class="galeria-imagen activa" id="galeria-foto-a" alt=""><img class="galeria-imagen" id="galeria-foto-b" alt="" aria-hidden="true">
       <button class="flecha anterior" id="foto-anterior" type="button" aria-label="Fotografía anterior">←</button><button class="flecha siguiente" id="foto-siguiente" type="button" aria-label="Fotografía siguiente">→</button>
@@ -231,7 +280,8 @@
     <div class="galeria-inferior"><span id="galeria-contador" aria-live="polite"></span><p>Desliza o usa ← → para recorrer · Esc para cerrar</p></div>
     <p class="galeria-error" id="galeria-error" role="status" hidden>No se pudo cargar esta fotografía. Prueba otra imagen.</p>
     <div id="miniaturas" class="miniaturas" aria-label="Fotografías de la casa"></div>
-    <div class="otras-casas"><button id="casa-anterior" type="button">← Casa anterior</button><span>Continúa explorando</span><button id="casa-siguiente" type="button">Siguiente casa →</button></div>
+    <div class="otras-casas"><button id="casa-anterior" type="button">← Casa anterior</button><button id="consultar-casa" type="button">Quiero un proyecto así ↗</button><button id="casa-siguiente" type="button">Siguiente casa →</button></div>
+    </div>
   </dialog>
 </body>
 </html>
