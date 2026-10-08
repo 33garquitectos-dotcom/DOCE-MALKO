@@ -1,5 +1,5 @@
 DOCE — ARQUITECTURA RESIDENCIAL
-Una rama de 33 Grados especializada en casas.
+Una rama de 33 Grados Arquitectos especializada en casas.
 
 ABRIR: doble clic en index.html desde el Explorador de archivos.
 EDITAR: abre esta carpeta en Visual Studio Code, guarda con Ctrl + S
@@ -41,3 +41,11 @@ Los originales se conservan. Esta actualización debe subirse a GitHub Pages.
 La web publicada por el usuario está en:
 https://33garquitectos-dotcom.github.io/DOCE-MALKO/
 Los textos editoriales son una propuesta editable para tu revisión.
+
+ACTUALIZACIÓN 8 OCTUBRE 2026
+Terreno o casa: Sí / No / Aún lo estoy definiendo.
+Recámaras y fecha de inicio: opciones de desplegables corregidas.
+Inversión: rangos en MXN y monto personalizado con formato $ 1,000,000.00.
+TikTok: https://www.tiktok.com/@arquitecturaresid
+WhatsApp: 55 7403 2616
+33 Grados Arquitectos: https://33g.com.mx/trabajos.html

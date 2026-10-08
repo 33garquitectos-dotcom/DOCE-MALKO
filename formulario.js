@@ -11,6 +11,39 @@ const referenciaCasa = document.querySelector('#casa-referencia');
 let pasoActual = 0;
 let enviandoConsulta = false;
 
+// Inversión: rangos claros en MXN y un monto libre con formato monetario.
+const rangoPresupuesto = document.querySelector('#presupuesto-rango');
+const montoPresupuesto = document.querySelector('#presupuesto');
+const grupoMonto = document.querySelector('#monto-personalizado');
+const formatoPesos = new Intl.NumberFormat('es-MX', { minimumFractionDigits:2, maximumFractionDigits:2 });
+function numeroPresupuesto() {
+  const texto = montoPresupuesto.value.trim().replace(/^\$\s*/, '').replace(/,/g, '');
+  if (!/^\d+(?:\.\d{0,2})?$/.test(texto)) return NaN;
+  return Number(texto);
+}
+function formatearPresupuesto() {
+  if (montoPresupuesto.disabled) return true;
+  const numero = numeroPresupuesto();
+  const valido = Number.isFinite(numero) && numero > 0 && numero <= 999999999999.99;
+  montoPresupuesto.setCustomValidity(valido ? '' : 'Escribe un monto mayor que cero, con hasta dos decimales. Ejemplo: 1000000.00');
+  if (valido) montoPresupuesto.value = '$ ' + formatoPesos.format(numero);
+  return valido;
+}
+function actualizarPresupuesto(enfocar = false) {
+  const personalizado = rangoPresupuesto.value === 'Monto personalizado';
+  grupoMonto.hidden = !personalizado;
+  montoPresupuesto.disabled = !personalizado;
+  montoPresupuesto.required = personalizado;
+  montoPresupuesto.setCustomValidity('');
+  if (personalizado && enfocar) montoPresupuesto.focus();
+}
+rangoPresupuesto.addEventListener('change', () => actualizarPresupuesto(true));
+montoPresupuesto.addEventListener('input', () => montoPresupuesto.setCustomValidity(''));
+montoPresupuesto.addEventListener('blur', formatearPresupuesto);
+formulario.addEventListener('reset', () => setTimeout(() => actualizarPresupuesto(), 0));
+actualizarPresupuesto();
+
+
 window.PROYECTOS.forEach(casa => {
   const opcion = document.createElement('option');
   opcion.value = casa.name; opcion.textContent = casa.name; referenciaCasa.append(opcion);
@@ -34,12 +67,13 @@ function mostrarPaso(numero, enfocar = true) {
     resumen.replaceChildren();
     const titulo = document.createElement('strong'); titulo.textContent = 'Tu consulta';
     const texto = document.createElement('p');
-    texto.textContent = `${formulario.elements.Proyecto.value} · ${formulario.elements.Ubicacion.value}${referenciaCasa.value ? ' · Inspiración: ' + referenciaCasa.value : ''}`;
+    texto.textContent = `${formulario.elements.Proyecto.value} · ${formulario.elements.Ubicacion.value}${referenciaCasa.value ? ' · Inspiración: ' + referenciaCasa.value : ''} · Inversión: ${rangoPresupuesto.value === 'Monto personalizado' ? montoPresupuesto.value : rangoPresupuesto.value} MXN`;
     resumen.append(titulo, texto);
   }
   if (enfocar) pasos[numero].querySelector('input,select,textarea').focus({ preventScroll:true });
 }
 function validarPaso(numero) {
+  if (numero === 1) formatearPresupuesto();
   for (const campo of pasos[numero].querySelectorAll('input,select,textarea')) {
     if (campo.required && campo.type !== 'checkbox') campo.value = campo.value.trim();
     if (!campo.checkValidity()) {

@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="DOCE, la rama de 33 Grados especializada en casas residenciales. Descubre nuestra arquitectura, interiores y espacios para vivir.">
+  <meta name="description" content="DOCE, la rama de 33 Grados Arquitectos especializada en casas residenciales. Descubre nuestra arquitectura, interiores y espacios para vivir.">
   <meta name="theme-color" content="#171917">
-  <title>DOCE — Arquitectura residencial · Una rama de 33 Grados</title>
+  <title>DOCE — Arquitectura residencial · Una rama de 33 Grados Arquitectos</title>
   <link rel="icon" href="logos/LOGO-12-GRIS.png" type="image/png">
   <link rel="stylesheet" href="estilos.css">
-  <link rel="stylesheet" href="mejoras.css">
+  <link rel="stylesheet" href="mejoras.css?v=20261008">
   <script src="proyectos.js" defer></script>
   <script src="script.js" defer></script>
   <script src="configuracion.js" defer></script>
-  <script src="formulario.js" defer></script>
+  <script src="formulario.js?v=20261008" defer></script>
 </head>
 <body>
   <a class="saltar" href="#contenido">Saltar al contenido</a>
@@ -20,7 +20,7 @@
   <header class="cabecera" id="cabecera">
     <a class="marca" href="#inicio" aria-label="DOCE, inicio">
       <img src="logos/LOGO-12-BLANCO.png" alt="DOCE arquitectura residencial" width="283" height="290">
-      <span class="marca-nombre">D.O.C.E<span>UNA RAMA DE 33 GRADOS</span></span>
+      <span class="marca-nombre">D.O.C.E<span>UNA RAMA DE 33 GRADOS ARQUITECTOS</span></span>
     </a>
     <button class="menu-boton" id="menu-boton" type="button" aria-expanded="false" aria-controls="menu">Menú <span aria-hidden="true">☰</span></button>
     <nav id="menu" aria-label="Navegación principal">
@@ -62,8 +62,8 @@
       </div>
     </section>
     <section class="introduccion contenedor" id="mirada" aria-labelledby="mirada-titulo">
-      <div class="revelar"><p class="micro">01 / Nuestra esencia</p><span class="palabra-doce" aria-hidden="true">doce.</span><a class="vinculo-grados" href="https://33g.com.mx/" target="_blank" rel="noopener noreferrer">Una rama de 33 Grados ↗</a></div>
-      <div class="revelar"><h2 id="mirada-titulo">Una casa es personal.<br>Su arquitectura<br><em>también debería serlo.</em></h2><p>Somos DOCE, la rama de 33 Grados dedicada exclusivamente a la arquitectura de casas residenciales. Un espacio para explorar distintas maneras de habitar, desde la primera idea hasta cada detalle del hogar.</p></div>
+      <div class="revelar"><p class="micro">01 / Nuestra esencia</p><span class="palabra-doce" aria-hidden="true">doce.</span><a class="vinculo-grados" href="https://33g.com.mx/trabajos.html" target="_blank" rel="noopener noreferrer">Una rama de 33 Grados Arquitectos ↗</a></div>
+      <div class="revelar"><h2 id="mirada-titulo">Una casa es personal.<br>Su arquitectura<br><em>también debería serlo.</em></h2><p>Somos DOCE, la rama de 33 Grados Arquitectos dedicada exclusivamente a la arquitectura de casas residenciales. Un espacio para explorar distintas maneras de habitar, desde la primera idea hasta cada detalle del hogar.</p></div>
     </section>
     <section class="trabajos contenedor" id="proyectos" aria-labelledby="proyectos-titulo">
       <div class="seccion-cabecera revelar"><div><p class="micro">02 / Las casas</p><h2 id="proyectos-titulo">Distintas historias.<br>Una mirada <em>residencial.</em></h2></div><p>Recorre los espacios.<br>Imagina las posibilidades.</p></div>
@@ -228,7 +228,7 @@
           <li><span>02</span><div><strong>Revisamos tu proyecto</strong><p>Analizamos la ubicación, el alcance y la información que nos envíes.</p></div></li>
           <li><span>03</span><div><strong>Conversamos contigo</strong><p>Te contactamos para aclarar detalles y acordar los siguientes pasos.</p></div></li>
         </ol>
-        <div class="redes-compactas"><a href="https://www.instagram.com/_d.o.c.e_/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://www.facebook.com/people/Doce/100071680596299/" target="_blank" rel="noopener noreferrer">Facebook ↗</a></div>
+        <div class="redes-compactas"><a href="https://www.instagram.com/_d.o.c.e_/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://www.facebook.com/people/Doce/100071680596299/" target="_blank" rel="noopener noreferrer">Facebook ↗</a><a href="https://www.tiktok.com/@arquitecturaresid" target="_blank" rel="noopener noreferrer">TikTok ↗</a><a class="enlace-whatsapp" href="https://wa.me/5215574032616" target="_blank" rel="noopener noreferrer">WhatsApp · 55 7403 2616 ↗</a></div>
       </div>
       <div class="formulario-panel revelar">
         <div class="formulario-encabezado"><span class="micro">Diseñemos tu casa</span><span id="paso-contador" aria-live="polite">Paso 1 de 3</span></div>
@@ -240,12 +240,24 @@
             <select id="tipo-proyecto" name="Proyecto" required><option value="">Selecciona una opción</option><option>Diseñar y construir una casa</option><option>Diseñar mi casa — proyecto arquitectónico</option><option>Remodelar o ampliar mi casa</option><option>Diseño de interiores residenciales</option><option>Quiero orientación para empezar</option></select>
             <label for="ubicacion">¿En qué ciudad o zona? <span aria-hidden="true">*</span></label>
             <input id="ubicacion" name="Ubicacion" autocomplete="address-level2" placeholder="Ciudad y estado" maxlength="150" required>
-            <div class="campos-dobles"><div><label for="terreno">¿Ya tienes terreno o casa?</label><select id="terreno" name="Terreno"><option>Aún lo estoy definiendo</option>Sí, tengo terreno</option>Sí, tengo una casa</option>Estoy buscando terreno</option></select></div><div><label for="superficie">Superficie aproximada (m²)</label><input id="superficie" name="Superficie_m2" type="number" min="1" max="100000" inputmode="decimal" step="any" placeholder="Opcional"></div></div>
+            <div class="campos-dobles"><div><label for="terreno">¿Ya tienes terreno o casa?</label><select id="terreno" name="Terreno"><option>Sí</option><option>No</option><option selected>Aún lo estoy definiendo</option></select></div><div><label for="superficie">Superficie aproximada (m²)</label><input id="superficie" name="Superficie_m2" type="number" min="1" max="100000" inputmode="decimal" step="any" placeholder="Opcional"></div></div>
           </fieldset>
           <fieldset class="paso-formulario" data-paso="1" hidden>
             <legend>Imaginemos tu espacio.</legend>
-            <div class="campos-dobles"><div><label for="recamaras">Recámaras que imaginas</label><select id="recamaras" name="Recamaras"><option>Por definir</option>1 a 2</option>3</option>4</option>5 o más</option></select></div><div><label for="cuando">¿Cuándo quieres empezar?</label><select id="cuando" name="Inicio"><option>Estoy explorando opciones</option>Lo antes posible</option>En 3 a 6 meses</option>En 6 a 12 meses</option>Más adelante</option></select></div></div>
-            <label for="presupuesto">Inversión aproximada (opcional)</label><input id="presupuesto" name="Inversion" maxlength="120" placeholder="Monto, rango o por definir">
+            <div class="campos-dobles"><div><label for="recamaras">Recámaras que imaginas</label><select id="recamaras" name="Recamaras"><option>Por definir</option><option>1 a 2</option><option>3</option><option>4</option><option>5 o más</option></select></div><div><label for="cuando">¿Cuándo quieres empezar?</label><select id="cuando" name="Inicio"><option>Estoy explorando opciones</option><option>Lo antes posible</option><option>En 3 a 6 meses</option><option>En 6 a 12 meses</option><option>Más adelante</option></select></div></div>
+            <label for="presupuesto-rango">Inversión aproximada en pesos mexicanos (opcional)</label>
+            <select id="presupuesto-rango" name="Rango_de_inversion" aria-controls="monto-personalizado">
+              <option value="Aún lo estoy definiendo">Aún lo estoy definiendo</option>
+              <option>Hasta $ 500,000.00</option>
+              <option>Más de $ 500,000.00 a $ 1,000,000.00</option>
+              <option>Más de $ 1,000,000.00 a $ 3,000,000.00</option>
+              <option>Más de $ 3,000,000.00 a $ 5,000,000.00</option>
+              <option>Más de $ 5,000,000.00 a $ 10,000,000.00</option>
+              <option>Más de $ 10,000,000.00</option>
+              <option value="Monto personalizado">Quiero indicar un monto</option>
+            </select>
+            <div id="monto-personalizado" hidden><label for="presupuesto">Tu monto en pesos mexicanos <span aria-hidden="true">*</span></label><input id="presupuesto" name="Inversion" type="text" inputmode="decimal" maxlength="30" placeholder="$ 1,000,000.00" aria-describedby="ayuda-presupuesto" disabled><p id="ayuda-presupuesto" class="ayuda-campo">Escribe el monto; al salir del campo lo verás con separadores y dos decimales.</p></div>
+            <input type="hidden" name="Moneda" value="MXN — pesos mexicanos">
             <label for="casa-referencia">¿Alguna de nuestras casas te inspira?</label><select id="casa-referencia" name="Casa_de_referencia"><option value="">Todavía no tengo una favorita</option></select>
             <label for="mensaje-proyecto">¿Qué es importante para ti? <span aria-hidden="true">*</span></label><textarea id="mensaje-proyecto" name="Mensaje" rows="4" maxlength="3000" minlength="10" placeholder="Cómo quieres vivir, los espacios que necesitas y lo que te gustaría lograr…" required></textarea>
           </fieldset>
@@ -267,7 +279,7 @@
       </div>
     </section>
   </main>
-  <footer class="pie contenedor"><div class="pie-identidad"><img src="logos/LOGO-12-NEGRO.png" alt="DOCE arquitectura residencial" width="283" height="290"><span>DOCE · Arquitectura residencial<br><a href="https://33g.com.mx/" target="_blank" rel="noopener noreferrer">Una rama de 33 Grados ↗</a></span></div><span>© <span id="anio">2026</span> DOCE</span><a href="#inicio">Volver arriba ↑</a></footer>
+  <footer class="pie contenedor"><div class="pie-identidad"><img src="logos/LOGO-12-NEGRO.png" alt="DOCE arquitectura residencial" width="283" height="290"><span>DOCE · Arquitectura residencial<br><a href="https://33g.com.mx/trabajos.html" target="_blank" rel="noopener noreferrer">Una rama de 33 Grados Arquitectos ↗</a></span></div><span>© <span id="anio">2026</span> DOCE</span><a href="#inicio">Volver arriba ↑</a></footer>
   <!-- GALERÍA: navegación con botones, teclado o deslizamiento táctil. -->
   <dialog id="galeria" aria-labelledby="galeria-titulo">
     <div class="galeria-contenido" id="galeria-contenido">
